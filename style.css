@@ -39,27 +39,31 @@ svg {
 
 .sliders {
   display: flex;
+  color: #2d2d2d;
   flex-direction: column;
   position: absolute;
   bottom: 0;
-  /* opacity: 0; */
-  /* pointer-events: none; */
+  opacity: 0;
+  pointer-events: none;
   padding: 1rem;
   width: 80%;
   border-top-right-radius: 1rem;
   border-top-left-radius: 1rem;
   /* We are adding an adjustment class */
-  /* transform: translateY(100px); */
+  transform: translateY(100px);
   transition: all 0.5s ease-in-out;
 }
 
-.sliders-active {
+.sliders.active {
   opacity: 1;
+  background: #fff;
   transform: translateY(0px);
   pointer-events: all;
 }
 
-.sliders button {
+.sliders button,
+.close-save,
+.close-library {
   position: absolute;
   top: 0;
   right: 0;
@@ -127,7 +131,9 @@ input[type="range"] {
   cursor: pointer;
 }
 
-.copy-container {
+.copy-container,
+.save-container,
+.library-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -136,12 +142,15 @@ input[type="range"] {
   height: 100%;
   display: flex;
   justify-content: center;
+  transition: all 0.6s ease-in-out;
   align-items: center;
   opacity: 0;
   pointer-events: none;
 }
 
-.copy-popup {
+.copy-popup,
+.save-popup,
+.library-popup {
   background: #fff;
   display: flex;
   flex-direction: column;
@@ -154,16 +163,38 @@ input[type="range"] {
   min-height: 30vh;
 }
 
-.copy-popup h4 {
+.copy-popup h4,
+.save-popup h4,
+.library-popup h4 {
   font-size: 2rem;
   padding: 2rem;
 }
 
-.copy-container.active {
+.copy-container.active,
+.save-container.active,
+.library-container.active {
   opacity: 1;
   pointer-events: all;
 }
 
-.copy-popup.active {
+.copy-popup.active,
+.save-popup.active,
+.library-popup.active {
   transform: translateY(0rem);
+}
+
+.save-name {
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.submit-save {
+  margin: 2rem;
+  padding: 1rem 3rem;
+  background: #4d4d4d;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.2rem;
 }
